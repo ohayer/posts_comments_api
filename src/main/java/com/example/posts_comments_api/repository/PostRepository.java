@@ -10,4 +10,5 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query(value = "SELECT * FROM Post ORDER BY date_of_addition DESC", nativeQuery = true)
     List<Post> findAllByOrderByDateOfAdditionDesc();
+
 }

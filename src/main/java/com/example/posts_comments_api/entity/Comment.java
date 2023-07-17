@@ -1,9 +1,6 @@
 package com.example.posts_comments_api.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,6 +16,4 @@ public class Comment {
     private Long id;
     private String description;
     private LocalDate date_of_addition = LocalDate.now();
-
-
 }

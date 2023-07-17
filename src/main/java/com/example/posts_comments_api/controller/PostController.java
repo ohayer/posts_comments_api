@@ -24,6 +24,7 @@ public class PostController {
 
     @PostMapping
     public ResponseEntity<?> addPost(@RequestBody Post post) {
+        post.setTitle(postService.changeSecondWordToLarge(post.getTitle()));
         postService.getPostRepository().save(post);
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)

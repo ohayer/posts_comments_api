@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,8 +16,8 @@ public class Post {
     private String title;
     private String description;
     private LocalDate date_of_addition = LocalDate.now();
-    @ManyToOne
-    private Comment comment;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Comment> comment;
 
 
 }
