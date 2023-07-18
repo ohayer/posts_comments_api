@@ -17,7 +17,6 @@ public class Post {
     private String description;
     private LocalDate date_of_addition = LocalDate.now();
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Comment> comment;
-
+    private List<Comment> comments;
 
 }

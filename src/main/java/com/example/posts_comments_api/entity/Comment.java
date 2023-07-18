@@ -16,4 +16,5 @@ public class Comment {
     private Long id;
     private String description;
     private LocalDate date_of_addition = LocalDate.now();
+    private Long post_id;
 }

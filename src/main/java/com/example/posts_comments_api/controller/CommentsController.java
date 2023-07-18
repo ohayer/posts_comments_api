@@ -25,10 +25,7 @@ public class CommentsController {
 
     @PostMapping
     public ResponseEntity<?> addComment(@RequestBody Comment comment) {
-        postService.getCommentRepository().save(comment);
-        return ResponseEntity
-                .status(HttpStatus.ACCEPTED)
-                .body(comment + ",\n" + "added successfully");
+       return postService.addCommentToPost(comment);
     }
 
     @DeleteMapping("{id}")
