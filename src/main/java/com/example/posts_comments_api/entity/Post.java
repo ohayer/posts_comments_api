@@ -2,12 +2,14 @@ package com.example.posts_comments_api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Post {
 
     @Id

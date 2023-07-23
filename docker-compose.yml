@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+    restart: always
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: post_com
+      MYSQL_ROOT: root
+    ports:
+      - "3306:3306"
+    restart: always
+
+

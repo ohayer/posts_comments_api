@@ -6,8 +6,6 @@ import com.example.posts_comments_api.exception.CommentNotFoundException;
 import com.example.posts_comments_api.repository.CommentRepository;
 import com.example.posts_comments_api.repository.PostRepository;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,14 +14,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@NoArgsConstructor
 @Data
 public class PostService {
 
     private PostRepository postRepository;
     private CommentRepository commentRepository;
 
-    @Autowired
     public PostService(PostRepository postRepository, CommentRepository commentRepository) {
         this.postRepository = postRepository;
         this.commentRepository = commentRepository;
