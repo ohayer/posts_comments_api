@@ -57,13 +57,14 @@ The `-t` flag allows you to specify a custom name for the Docker image (in this 
 
 The API exposes the following endpoints:
 
-1. **GET /api/posts**: Retrieve all posts with their associated comments, sorted by the date of addition in descending order.
+1. **GET /posts**: Retrieve all posts with their associated comments, sorted by the date of addition in descending order.
+2. **GET /comments**: Get all the comments.
 
-2. **POST /api/comments**: Create a new comment for a specific post.
+3. **POST /comments**: Create a new comment for a specific post.
 
-3. **PUT /api/comments/{commentId}**: Update an existing comment.
+4. **PUT /comments/{commentId}**: Update an existing comment.
 
-4. **DELETE /api/comments/{commentId}**: Remove a comment.
+5. **DELETE /comments/{commentId}**: Remove a comment.
 
 Please refer to the API documentation or code comments for more details on request/response formats and required parameters for each endpoint.
 
