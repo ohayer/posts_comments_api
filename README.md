@@ -29,12 +29,12 @@ To quickly set up and run the API along with its required components, follow the
 2. Navigate to the root folder of the project.
 
 3. Run the following command to build the Docker image and start the application in detached mode:
-
+docker-compose up -d
 
 The `-d` flag runs the containers in the background.
 
 4. Wait for the application to start. You can monitor the logs using the following command:
-
+docker-compose logs -f
 
 5. Once the application is up and running, you can access the API at `http://localhost:8080`.
 
@@ -47,7 +47,7 @@ If you make any changes to the application code, you need to rebuild the Docker 
 2. Navigate to the root folder of the project.
 
 3. Build the Docker image with the following command:
-
+docker build -t posts-comments-api .
 
 The `-t` flag allows you to specify a custom name for the Docker image (in this case, we use `posts-comments-api`).
 
