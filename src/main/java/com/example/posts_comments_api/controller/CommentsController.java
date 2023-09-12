@@ -25,15 +25,12 @@ public class CommentsController {
 
     @PostMapping
     public ResponseEntity<?> addComment(@RequestBody Comment comment) {
-       return postService.addCommentToPost(comment);
+        return postService.addCommentToPost(comment);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> removeComment(@PathVariable long id) {
-        postService.getCommentRepository().deleteById(id);
-        return ResponseEntity
-                .status(HttpStatus.ACCEPTED)
-                .body("deleted successfully");
+        return postService.removeComment(id);
     }
 
     @PutMapping("{id}")

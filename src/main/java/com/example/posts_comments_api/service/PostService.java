@@ -47,11 +47,11 @@ public class PostService {
         }
     }
 
-    public ResponseEntity<?> addCommentToPost(Comment comment){
+    public ResponseEntity<?> addCommentToPost(Comment comment) {
 
         Optional<Post> foundPost = postRepository.findById(comment.getPost_id());
         if (foundPost.isPresent()) {
-        comment = commentRepository.save(comment);
+            comment = commentRepository.save(comment);
             Post post = foundPost.get();
 
             List<Comment> comments = post.getComments();
@@ -64,6 +64,27 @@ public class PostService {
                     .body(comment + ",\n" + "added successfully");
         } else {
             throw new CommentNotFoundException("Comment cannot be added");
+        }
+    }
+
+    public ResponseEntity<?> removeComment(Long id) {
+        Post post = postRepository.findPostByCommentId(id);
+        Optional<Comment> comment = commentRepository.findById(id);
+        if (post != null) {
+            List<Comment> comments = post.getComments();
+            comments.removeIf(commentar -> commentar.getId().equals(comment.get().getId()));
+
+            commentRepository.deleteById(comment.get().getId());
+
+            postRepository.save(post);
+
+            return ResponseEntity
+                    .status(HttpStatus.ACCEPTED)
+                    .body("Deleted successfully");
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("Post not found for the given comment ID");
         }
     }
 }

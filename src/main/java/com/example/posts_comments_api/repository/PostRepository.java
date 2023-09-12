@@ -10,4 +10,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query(value = "SELECT * FROM post ORDER BY date_of_addition DESC", nativeQuery = true)
     List<Post> findAllByOrderByDateOfAdditionDesc();
+    @Query(value = ("SELECT * FROM post p INNER JOIN post_comments c ON p.id = c.post_id WHERE c.comments_id = ?1"), nativeQuery = true)
+    Post findPostByCommentId(Long id);
 }
